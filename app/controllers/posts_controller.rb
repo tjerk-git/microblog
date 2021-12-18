@@ -19,6 +19,11 @@ class PostsController < ApplicationController
   def edit
   end
 
+  def heart 
+     @heart = Heart.create(post_id: params[:id])
+     redirect_to posts_url
+  end
+
   # POST /posts or /posts.json
   def create
     @post = Post.new(post_params)
