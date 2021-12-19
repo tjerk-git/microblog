@@ -18,3 +18,12 @@
     font-size: 1.125rem;
     line-height: 1.75rem;
  }
+ 
+ .copy_button{
+   background: url('/link.png');
+   cursor:pointer;
+   border: none;
+   width:1.5rem;
+   height:1.5rem;
+   background-size: cover;
+ }
