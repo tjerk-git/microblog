@@ -8,12 +8,14 @@
   <p class="my-5 text-xl">
     <%= post.body %>
   </p>
-
+  
   <div class="text-md text-gray-400 pb-5">
   ~ Tjerk, <%= time_tag post.created_at, "data-local": "time-ago" %>
   </div>
 
+
   <div class="h-10">
+
 
     <turbo-frame id="like">
     <% if loved?(post) %>
