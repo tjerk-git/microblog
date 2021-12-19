@@ -75,6 +75,10 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find_by_slug(params[:slug])
+
+      if @post.nil?
+        @post = Post.find(params[:id])
+      end
     end
 
     def set_session
