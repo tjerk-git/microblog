@@ -1,8 +1,17 @@
 class PostsController < ApplicationController
+  require 'securerandom'
+
   before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :set_session
+
+  before_action :authenticate_user!, only: %i[ edit destroy new create stats]
 
   # GET /posts or /posts.json
   def index
+    @posts = Post.all
+  end
+
+  def stats
     @posts = Post.all
   end
 
@@ -20,7 +29,7 @@ class PostsController < ApplicationController
   end
 
   def heart 
-     @heart = Heart.create(post_id: params[:id])
+     @heart = Heart.create(post_id: params[:id], sessions: session[:current_user])
      redirect_to posts_url
   end
 
@@ -66,6 +75,12 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
+    end
+
+    def set_session
+      if !session[:current_user]
+        session[:current_user] = SecureRandom.hex
+      end
     end
 
     # Only allow a list of trusted parameters through.

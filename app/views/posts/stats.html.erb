@@ -1,0 +1,8 @@
+
+<% @posts.each do |post| %>
+<div class="m-5">
+  <h2 class="text-4xl font-bold">
+    <%= post.title %> | hearts (<%= post.hearts.count %>)
+  </h2>
+</div>
+<% end %>
