@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'stats', to: 'posts#stats', as: 'stats'
   put '/posts/heart/:id', to: 'posts#heart', as: 'heart'
 
-  match "/404", to: "errors#not_found", via: :all
+  get '404', :to => 'errors#not_found'
+  
   match "/500", to: "errors#not_found", via: :all
 end
