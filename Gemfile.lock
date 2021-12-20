@@ -1437,12 +1437,12 @@ DEPENDENCIES
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
+  mini_magick
   pg
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.0)
   redis (~> 4.0)
-  ruby-vips
   selenium-webdriver
   sprockets-rails
   sqlite3
