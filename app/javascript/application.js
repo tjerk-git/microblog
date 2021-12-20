@@ -2,7 +2,7 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import "trix"
-import "./trix-editor-overrides.js"
+import "trix-editor-overrides"
 import "@rails/actiontext"
 
 import LocalTime from "local-time"
