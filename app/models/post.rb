@@ -1,7 +1,9 @@
 class Post < ApplicationRecord
     has_rich_text :body
     has_many :hearts, dependent: :delete_all
-
+    scope :desc, -> {
+      order("posts.updated_at DESC")
+    }
     validates :title, presence: true, uniqueness: true
     before_validation :create_slug
 
