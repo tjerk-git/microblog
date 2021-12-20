@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get 'stats', to: 'posts#stats', as: 'stats'
   put '/posts/heart/:id', to: 'posts#heart', as: 'heart'
+ 
+  patch '/posts/edit/:slug', to: 'posts#update', as: 'post_slug_update'
 
   get '404', :to => 'errors#not_found'
   

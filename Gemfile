@@ -15,7 +15,6 @@ gem 'pg'
 gem 'aws-sdk', '~> 3'
 gem 'rack-cors'
 
-
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
@@ -73,6 +72,7 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem 'dotenv-rails', groups: [:development, :test]
 end
 
 group :test do
