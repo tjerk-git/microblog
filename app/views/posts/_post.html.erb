@@ -5,7 +5,7 @@
   <meta property="og:site_name" content="Tjerk's place on the internet">
 
 
-<div id="<%= dom_id post %>" class="m-5">
+<div id="<%= dom_id post %>" class="m-5" data-controller="clipboard">
   <h2 class="text-4xl font-bold">
     <%= link_to post_path(post.slug) do %>
       <%= post.title %>
@@ -39,8 +39,10 @@
         <% end %>
     <% end %>
       </turbo-frame>
-      
+      <%= link_to post_path(post.slug) do %>
+        <img src="/link.png" data-action="click->clipboard#copy" class="w-6 pt-1 ml-5 float-right">
+      <% end %>
   </div>
-  <div class="seperator w-full border-solid border border-gray-200 mt-2">
+  <div class="seperator w-full border-solid border border-gray-200">
   </div>
 </div>
