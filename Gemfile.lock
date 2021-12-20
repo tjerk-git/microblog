@@ -1442,6 +1442,7 @@ DEPENDENCIES
   rack-cors
   rails (~> 7.0.0)
   redis (~> 4.0)
+  ruby-vips
   selenium-webdriver
   sprockets-rails
   sqlite3
