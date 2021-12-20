@@ -5,7 +5,7 @@
   <meta property="og:site_name" content="Tjerk's place on the internet">
 
 
-<div id="<%= dom_id post %>" class="m-5" data-controller="clipboard">
+<div id="<%= dom_id post %>" class="m-5">
   <h2 class="text-4xl font-bold">
     <%= link_to post_path(post.slug) do %>
       <%= post.title %>
@@ -40,10 +40,6 @@
     <% end %>
       </turbo-frame>
       
-        <button type="button" data-action="click->clipboard#copy"  class="copy_button float-right tooltip w-full sm:w-auto py-2 px-3 bg-gray-200 hover:bg-gray-400 disabled:bg-indigo-300 dark:disabled:bg-indigo-800 text-white dark:disabled:text-indigo-400 text-sm font-semibold rounded-md shadow focus:outline-none cursor-pointer">
-        Copy link
-        <span class="tooltiptext text-sm p-2 hidden rounded-md " data-clipboard-target="text">Link copied</span>
-        </button>
   </div>
   <div class="seperator w-full border-solid border border-gray-200 mt-2">
   </div>

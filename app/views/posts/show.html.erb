@@ -1,10 +1,16 @@
 
 <%= render @post %>
+  <div data-controller="clipboard">
+    <button type="button" data-action="click->clipboard#copy"  class="mr-5 copy_button float-right tooltip w-full sm:w-auto py-2 px-3 bg-gray-200 hover:bg-gray-400 disabled:bg-indigo-300 dark:disabled:bg-indigo-800 text-white dark:disabled:text-indigo-400 text-sm font-semibold rounded-md shadow focus:outline-none cursor-pointer">
+      Copy link
+      <span class="tooltiptext text-sm p-2 hidden rounded-md " data-clipboard-target="text">Link copied</span>
+    </button>
+  </div>
 
 <%= link_to 'See all posts', posts_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-  <% if current_user %>
-  <%= link_to 'Edit this post', edit_post_path(@post.slug), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-  <div class="inline-block ml-2">
-    <%= button_to 'Destroy this post', post_path(@post.slug), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
-  </div>
-  <% end %>
+<% if current_user %>
+<%= link_to 'Edit this post', edit_post_path(@post.slug), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+<div class="inline-block ml-2">
+  <%= button_to 'Destroy this post', post_path(@post.slug), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+</div>
+<% end %>
