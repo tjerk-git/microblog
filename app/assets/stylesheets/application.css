@@ -20,10 +20,14 @@
  }
  
  .copy_button{
-   background: url('/link.png');
-   cursor:pointer;
-   border: none;
-   width:1.5rem;
-   height:1.5rem;
-   background-size: cover;
+   position: relative;
+ }
+
+ .tooltiptext{
+    background: black;
+    color:white;
+    position: absolute;
+    z-index: 1;
+    top:0;
+    left:-100px;
  }
