@@ -1,7 +1,7 @@
 
 <%= render @post %>
   <div data-controller="clipboard">
-    <button type="button" data-action="click->clipboard#copy"  class="mr-20 copy_button float-right tooltip w-30 sm:w-auto py-3 px-5 bg-blue-400 hover:bg-blue-600 text-white text-sm font-semibold rounded-md shadow focus:outline-none cursor-pointer">
+    <button type="button" data-action="click->clipboard#copy"  class="mr-5 copy_button float-right tooltip w-30 sm:w-auto py-3 px-5 bg-blue-400 hover:bg-blue-600 text-white text-sm font-semibold rounded-md shadow focus:outline-none cursor-pointer">
       Copy link
       <span class="tooltiptext text-sm p-2 hidden rounded-md " data-clipboard-target="text">Link copied</span>
     </button>
