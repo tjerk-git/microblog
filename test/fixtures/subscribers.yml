@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  confirmed: false
+  newsletter: one
+  confirmation_key: MyString
+
+two:
+  email: MyString
+  confirmed: false
+  newsletter: two
+  confirmation_key: MyString
