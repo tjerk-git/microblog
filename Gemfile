@@ -14,6 +14,7 @@ gem 'pg'
 
 gem 'aws-sdk', '~> 3'
 gem 'rack-cors'
+gem 'friendly_id', '~> 5.4.0'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -67,6 +68,7 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
   gem 'sqlite3'
+  gem 'faker'
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 

@@ -1,16 +1,19 @@
 Rails.application.routes.draw do
-  resources :newsletters
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  get 'newsletters/latest', to: 'newsletters#latest', as: 'latest'
 
   devise_for :users
   resources :users
   resources :posts, param: :slug
 
+  resources :newsletters
+
   # Defines the root path route ("/")
   root "posts#index"
 
   get 'stats', to: 'posts#stats', as: 'stats'
-  get 'subscribe', to:'subscriptions#index', as: 'subscriptions'
   get '404', :to => 'errors#not_found'
 
   put '/posts/heart/:id', to: 'posts#heart', as: 'heart' 

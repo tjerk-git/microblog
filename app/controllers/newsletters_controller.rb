@@ -6,6 +6,17 @@ class NewslettersController < ApplicationController
     @newsletters = Newsletter.all
   end
 
+
+  def latest
+    @newsletter = Newsletter.last()
+    @book = Book.last()
+    @movie = Movie.last()
+    @album = Album.last()
+    @game = Game.last()
+
+    render :show
+  end
+
   # GET /newsletters/1 or /newsletters/1.json
   def show
   end
@@ -60,7 +71,7 @@ class NewslettersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_newsletter
-      @newsletter = Newsletter.find(params[:id])
+      @newsletter = Newsletter.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

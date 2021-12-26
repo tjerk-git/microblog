@@ -1,18 +1,52 @@
 <div id="<%= dom_id newsletter %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
-    <%= newsletter.title %>
+
+  <p class="my-5 text-4xl p-5 font-bold">
+    Now playing | last updated: <%= time_tag newsletter.updated_at, "data-local": "time-ago" %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Body:</strong>
     <%= newsletter.body %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Slug:</strong>
-    <%= newsletter.slug %>
-  </p>
+  <div class="w-full bg-yellow-100 p-5">
+    <img src="/book.png" class="float-left mr-5">
+    <div class="text-sm">Currently reading:</div>
+    <div class="text-xl pl-5 pr-5 pb-5">
+    <%= link_to @book.link do %>
+      <%= @book.title %> | <%= @book.author %>
+    <% end %>
+    </div>
+  </div>
+
+  <div class="w-full bg-red-400 p-5">
+    <img src="/movie.png" class="float-left mr-5">
+    <div class="text-sm">Currently watching:</div>
+    <div class="text-xl pl-5 pr-5 pb-5">
+    <%= link_to @movie.link do %>
+      <%= @movie.title %>
+    <% end %>
+    </div>
+  </div>
+
+  <div class="w-full bg-green-300 p-5">
+    <img src="/music.png" class="float-left mr-5">
+    <div class="text-sm">Currently listening to:</div>
+    <div class="text-xl pl-5 pr-5 pb-5">
+    <%= link_to @album.link do %>
+      <%= @album.artist %> | <%= @album.title %>
+    <% end %>
+    </div>
+  </div>
+
+  <div class="w-full bg-blue-300 p-5">
+    <img src="/game.png" class="float-left mr-5">
+    <div class="text-sm">Currently playing:</div>
+    <div class="text-xl pl-5 pr-5 pb-5">
+    <%= link_to @game.link do %>
+      <%= @game.title %>
+    <% end %>
+    </div>
+  </div>
 
   <% if action_name != "show" %>
     <%= link_to "Show this newsletter", newsletter, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
