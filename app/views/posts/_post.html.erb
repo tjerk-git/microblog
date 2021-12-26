@@ -15,7 +15,7 @@
     <%= post.body %>
   </p>
   
-  <div class="text-md pt-5 text-gray-400 pb-5">
+  <div class="text-md pt-5 text-gray-600 pb-5">
   ~ Tjerk, <%= time_tag post.created_at, "data-local": "time-ago" %>
   </div>
 
@@ -39,7 +39,7 @@
     <% end %>
       </turbo-frame>
       <%= link_to post_path(post.slug) do %>
-        <img src="/link.png" data-action="click->clipboard#copy" class="w-6 pt-1 ml-5 float-right">
+        <img src="/link.png" alt="copy_link" data-action="click->clipboard#copy" class="w-6 pt-1 ml-5 float-right">
       <% end %>
   </div>
   <div class="seperator w-full border-solid border border-gray-200">
