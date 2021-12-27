@@ -1,4 +1,6 @@
 <div id="posts">
-  <%= render @posts.desc %>
+  <% @posts.desc.each do |post| %>
+      <%= render "post_preview", post: post %>
+  <% end %>
 </div>
 

@@ -1,0 +1,44 @@
+
+<div id="<%= dom_id post %>" class="m-5">
+<h2 class="text-4xl font-bold">
+  <%= link_to post_path(post.slug) do %>
+    <%= post.title %>
+  <% end %>
+</h2>
+
+<p class="my-5 text-xl post-content">
+  <% if post.photos.attached? %>
+      <%= image_tag post.photos[0].variant(convert: :webp), alt: post.title %>
+  <% end %>
+    
+   <%= markdown(post.body) %>
+</p>
+
+<div class="text-md pt-5 text-gray-600 pb-5">
+~ Tjerk, <%= time_tag post.created_at, "data-local": "time-ago" %>
+</div>
+
+
+<div class="h-10">
+
+  <turbo-frame id="like">
+  <% if loved?(post) %>
+      <%= button_to heart_path(post), method: "put", aria: { label: "you loved this post" },
+       disabled: true, class: 'bg-white text-red-600 float-right w-8 ml-5', id:'heart' do %>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+          </svg>
+      <% end %>
+  <% else %>
+      <%= button_to heart_path(post), method: "put", aria: { label: "give this post some love" },
+       class: 'bg-white text-gray-800 rounded-lg float-right w-8 ml-5' do %>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+          </svg>
+      <% end %>
+  <% end %>
+    </turbo-frame>
+</div>
+<div class="seperator w-full border-solid border border-gray-200">
+</div>
+</div>
