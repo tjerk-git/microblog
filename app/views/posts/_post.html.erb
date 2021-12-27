@@ -11,8 +11,15 @@
     <% end %>
   </h2>
 
-  <p class="my-5 text-xl">
-    <%= post.body %>
+  <p class="my-5 text-xl post-content">
+    <% if post.photos.attached? %>
+      <% post.photos.each do |image| %>
+        <%= image_tag image.variant(convert: :webp), alt: post.title %>
+        <br>
+      <% end %>
+    <% end %>
+      
+     <%= markdown(post.body) %>
   </p>
   
   <div class="text-md pt-5 text-gray-600 pb-5">

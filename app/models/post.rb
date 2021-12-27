@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
-    has_rich_text :body
     has_many :hearts, dependent: :delete_all
+    has_many_attached :photos
     scope :desc, -> {
       order("posts.updated_at DESC")
     }
