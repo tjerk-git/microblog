@@ -20,9 +20,8 @@
 
 
 <div class="h-10">
-
   <%= link_to post_path(post.slug) do %>
-    <button type="button" class="mr-5 copy_button mx-auto tooltip w-30 sm:w-auto py-3 px-5 bg-blue-300 hover:bg-blue-600 text-white text-sm font-semibold rounded-md shadow focus:outline-none cursor-pointer">
+    <button type="button" class="mr-5 float-left copy_button mx-auto tooltip w-30 sm:w-auto py-3 px-5 hover:bg-gray-100 text-black text-sm rounded-md shadow focus:outline-none cursor-pointer">
       <% if post.photos.attached? %>
       Show all photos
       <% else %>
