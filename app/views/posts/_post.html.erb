@@ -26,9 +26,7 @@
   ~ Tjerk, <%= time_tag post.created_at, "data-local": "time-ago" %>
   </div>
 
-
   <div class="h-10">
-
     <turbo-frame id="like">
     <% if loved?(post) %>
         <%= button_to heart_path(post), method: "put", aria: { label: "you loved this post" },
@@ -46,9 +44,6 @@
         <% end %>
     <% end %>
       </turbo-frame>
-      <%= link_to post_path(post.slug) do %>
-        <img src="/link.webp" alt="copy_link" role="button" aria-label="copy link" data-action="click->clipboard#copy" class="w-6 pt-1 ml-5 float-right">
-      <% end %>
   </div>
   <div class="seperator w-full border-solid border border-gray-200">
   </div>

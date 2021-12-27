@@ -21,6 +21,15 @@
 
 <div class="h-10">
 
+  <%= link_to post_path(post.slug) do %>
+    <button type="button" class="mr-5 copy_button mx-auto tooltip w-30 sm:w-auto py-3 px-5 bg-blue-300 hover:bg-blue-600 text-white text-sm font-semibold rounded-md shadow focus:outline-none cursor-pointer">
+      <% if post.photos.attached? %>
+      Show all photos
+      <% else %>
+      Read this post
+      <% end %>
+    </button>
+  <% end %>
   <turbo-frame id="like">
   <% if loved?(post) %>
       <%= button_to heart_path(post), method: "put", aria: { label: "you loved this post" },
@@ -39,6 +48,6 @@
   <% end %>
     </turbo-frame>
 </div>
-<div class="seperator w-full border-solid border border-gray-200">
+<div class="seperator mt-5 w-full border-solid border border-gray-200">
 </div>
 </div>
