@@ -1,0 +1,8 @@
+<% if @post.photos.attached? %>
+
+    <% @post.photos.each do |image| %>
+        <%= image_tag image.variant(resize_to_limit: [100, 100], format: :jpeg, saver: {quality: 40 }) %>
+        <%= button_to "Remove image", delete_photo_path(@post.slug), params: { image_id: image.id } %>
+    <% end %>
+
+<% end %>

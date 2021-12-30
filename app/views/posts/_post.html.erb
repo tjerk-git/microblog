@@ -14,7 +14,7 @@
   <p class="my-5 text-xl post-content">
     <% if post.photos.attached? %>
       <% post.photos.each do |image| %>
-        <%= image_tag image.variant(convert: :webp), alt: post.title %>
+        <%= image_tag image.variant(resize_to_fit: [1000, 1000], format: :jpeg, saver: {quality: 80 }), class:"mx-auto" %>
         <br>
       <% end %>
     <% end %>

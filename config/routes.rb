@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   get 'stats', to: 'posts#stats', as: 'stats'
   get '404', :to => 'errors#not_found'
+  post 'delete/image/:slug', :to => 'posts#remove_image', as: 'delete_photo'
 
   put '/posts/heart/:id', to: 'posts#heart', as: 'heart' 
   patch '/posts/edit/:slug', to: 'posts#update', as: 'post_slug_update'

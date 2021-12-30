@@ -4,6 +4,7 @@ class Post < ApplicationRecord
     scope :desc, -> {
       order("posts.updated_at DESC")
     }
+    validates :photos, presence: true, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'], size_range: 1..(5.megabytes) }
     validates :title, presence: true, uniqueness: true
     before_validation :create_slug
 

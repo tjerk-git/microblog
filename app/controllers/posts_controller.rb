@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   require 'securerandom'
 
-  before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :set_post, only: %i[ show edit update destroy remove_image ]
   before_action :set_session
 
   before_action :authenticate_user!, only: %i[ edit destroy new create stats]
@@ -31,6 +31,12 @@ class PostsController < ApplicationController
   def heart 
      @heart = Heart.create(post_id: params[:id], sessions: session[:current_user])
      redirect_to posts_url
+  end
+
+  def remove_image
+    attachment = ActiveStorage::Attachment.find(params[:image_id])
+    attachment.purge
+    redirect_to post_url(@post.slug), notice: "Image deleted."
   end
 
   # POST /posts or /posts.json

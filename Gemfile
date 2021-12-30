@@ -15,6 +15,7 @@ gem 'pg'
 gem 'aws-sdk', '~> 3'
 gem 'rack-cors'
 gem 'friendly_id', '~> 5.4.0'
+gem 'activestorage-validator'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
