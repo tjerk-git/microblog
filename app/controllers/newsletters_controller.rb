@@ -34,8 +34,11 @@ class NewslettersController < ApplicationController
   def create
     @newsletter = Newsletter.new(newsletter_params)
 
+ 
+
     respond_to do |format|
       if @newsletter.save
+        @newsletter.book.create(newsletter_params)
         format.html { redirect_to newsletter_url(@newsletter), notice: "Newsletter was successfully created." }
         format.json { render :show, status: :created, location: @newsletter }
       else
@@ -76,6 +79,6 @@ class NewslettersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def newsletter_params
-      params.require(:newsletter).permit(:title, :body, :slug)
+      params.require(:newsletter).permit(newsletter:[:title, :body], book: [:title, :author, :link])
     end
 end
