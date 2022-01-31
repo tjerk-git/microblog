@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "posts#index"
+  get 'now', to: 'posts#index', as: 'now'
 
   get 'stats', to: 'posts#stats', as: 'stats'
   get '404', :to => 'errors#not_found'
